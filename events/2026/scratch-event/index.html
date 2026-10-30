@@ -8,6 +8,7 @@
   <title>
    Scratch教室 | LID飯南
   </title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&amp;family=Zen+Maru+Gothic:wght@500;700;900&amp;display=swap" rel="stylesheet"/>
@@ -51,24 +52,31 @@
       </span>
      </div>
      <div class="scratch-about-content">
-      <div aria-hidden="true" class="scratch-about-illustration">
-       <div class="scratch-about-screen">
-        <span class="window-dots">
-         ● ● ●
-        </span>
-        <div class="code-line mint">
-        </div>
-        <div class="code-line yellow">
-        </div>
-        <div class="code-line sky">
-        </div>
-        <div class="code-line mint short">
-        </div>
+      <!-- 教室紹介スライド：教室イメージ2枚＋実際のScratch画面1枚 -->
+      <div class="classroom-slideshow" aria-roledescription="カルーセル" aria-label="教室のイメージ画像">
+       <div class="classroom-slideshow-viewport" id="classroom-slideshow-viewport">
+        <figure class="classroom-slide classroom-slide--photo is-active" aria-hidden="false">
+         <img src="images/classroom-together.jpg" alt="子どもたちがノートPCを囲んで楽しそうに学ぶ教室のイメージ" width="1440" height="983" loading="eager"/>
+         <figcaption>写真はイメージです</figcaption>
+        </figure>
+        <figure class="classroom-slide classroom-slide--screenshot" aria-hidden="true">
+         <img src="images/scratch-screen.png" alt="Scratchの実際の編集画面。左側に命令ブロック、右側に野球場で動く猫の作品を表示" width="1917" height="802" loading="eager"/>
+         <figcaption>Scratchの操作画面</figcaption>
+        </figure>
+        <figure class="classroom-slide classroom-slide--photo" aria-hidden="true">
+         <img src="images/classroom-collaboration.jpg" alt="子どもたちが相談しながらPCに向かう教室のイメージ" width="1408" height="995" loading="eager"/>
+         <figcaption>写真はイメージです</figcaption>
+        </figure>
        </div>
-       <span class="scratch-about-bubble scratch-about-bubble-yellow">
-       </span>
-       <span class="scratch-about-bubble scratch-about-bubble-green">
-       </span>
+       <div class="classroom-slideshow-controls">
+        <button type="button" class="classroom-slide-arrow" id="classroom-slide-prev" aria-label="前の画像へ">‹</button>
+        <div class="classroom-slide-dots" aria-label="画像を切り替える">
+         <button type="button" class="classroom-slide-dot is-active" aria-label="1枚目の画像" aria-current="true" data-slide="0"></button>
+         <button type="button" class="classroom-slide-dot" aria-label="2枚目の画像" data-slide="1"></button>
+         <button type="button" class="classroom-slide-dot" aria-label="3枚目の画像" data-slide="2"></button>
+        </div>
+        <button type="button" class="classroom-slide-arrow" id="classroom-slide-next" aria-label="次の画像へ">›</button>
+       </div>
       </div>
       <div class="scratch-about-text">
        <p>
@@ -176,7 +184,8 @@
          対象
         </dt>
         <dd id="info-audience">
-         小学生（低学年は保護者同伴可）
+         小学生（低学年は保護者同伴可）<br>
+         中学生
         </dd>
        </div>
        <div class="event-details-item">
@@ -185,7 +194,7 @@
          定員
         </dt>
         <dd id="info-capacity">
-         10名
+         5名
         </dd>
        </div>
        <div class="event-details-item">
@@ -264,13 +273,13 @@
          <span class="course-schedule-date">
           日程調整中
          </span>
-         第4回　迷路で冒険をしよう！
+         第4回　迷路で大冒険！
         </li>
         <li>
          <span class="course-schedule-date">
           日程調整中
          </span>
-         第5回　上手にキャッチボールできるかな？
+         第5回　上手にとれるかな？キャッチボールゲーム！
         </li>
         <li>
          <span class="course-schedule-date">
@@ -322,13 +331,6 @@
        <p class="application-external-note" hidden="" id="external-note">
         別のタブで申込フォームが開きます。
        </p>
-       <p class="application-privacy-note">
-        お申し込みに際してお預かりする個人情報は、教室の運営やご連絡のために利用します。詳しくは
-        <a href="https://lid-iinan.com/" id="privacy-link" rel="noopener noreferrer" target="_blank">
-         個人情報の取り扱い
-        </a>
-        をご確認ください。
-       </p>
       </div>
      </div>
     </div>
@@ -342,9 +344,6 @@
     <div class="site-footer-links">
      <a href="https://lid-iinan.com/contact.html" rel="noopener noreferrer" target="_blank">
       お問い合わせ
-     </a>
-     <a href="https://lid-iinan.com/" id="footer-privacy-link" rel="noopener noreferrer" target="_blank">
-      個人情報の取り扱い
      </a>
     </div>
    </div>

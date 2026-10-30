@@ -1,9 +1,9 @@
 'use strict';
 /* Scratch教室専用。基本情報と全10回のスケジュールは index.html に直接記述。 */
 const SCRATCH_SETTINGS = {
-  registrationStatus: 'before', // 'before' | 'open' | 'closed'
+  registrationStatus: 'open', // 'before' | 'open' | 'closed'
   eventStatus: 'upcoming',       // 'upcoming' | 'ended'
-  registrationFormUrl: '',       // 受付開始前は空欄
+  registrationFormUrl: 'https://forms.gle/tnLynBL6xeMMXcCm8', // Googleフォーム（仮版）
   venueName: '',                 // 会場決定後に設定
   venueAddress: '',
   venueMapsUrl: '',
@@ -69,3 +69,51 @@ function applySettings() {
   }
 }
 document.addEventListener('DOMContentLoaded', applySettings);
+
+
+// 教室紹介の画像を5秒ごとに切り替える。操作中・非表示時は自動再生を停止。
+function initClassroomSlideshow() {
+  const root = document.querySelector('.classroom-slideshow');
+  if (!root) return;
+  const slides = [...root.querySelectorAll('.classroom-slide')];
+  const dots = [...root.querySelectorAll('.classroom-slide-dot')];
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0;
+  let intervalId = null;
+  let isVisible = true;
+  let isPaused = false;
+  const show = index => {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === current);
+      slide.setAttribute('aria-hidden', String(i !== current));
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === current);
+      if (i === current) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+  };
+  const stop = () => { if (intervalId !== null) clearInterval(intervalId); intervalId = null; };
+  const start = () => {
+    stop();
+    if (!reducedMotion.matches && isVisible && !isPaused && !document.hidden) {
+      intervalId = window.setInterval(() => show(current + 1), 5000);
+    }
+  };
+  root.querySelector('#classroom-slide-prev').addEventListener('click', () => { show(current - 1); start(); });
+  root.querySelector('#classroom-slide-next').addEventListener('click', () => { show(current + 1); start(); });
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); start(); }));
+  root.addEventListener('mouseenter', () => { isPaused = true; stop(); });
+  root.addEventListener('mouseleave', () => { isPaused = false; start(); });
+  root.addEventListener('focusin', () => { isPaused = true; stop(); });
+  root.addEventListener('focusout', e => { if (!root.contains(e.relatedTarget)) { isPaused = false; start(); } });
+  document.addEventListener('visibilitychange', start);
+  reducedMotion.addEventListener('change', start);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => { isVisible = entries[0].isIntersecting; start(); }, { threshold: .1 }).observe(root);
+  }
+  show(0);
+  start();
+}
+document.addEventListener('DOMContentLoaded', initClassroomSlideshow);
