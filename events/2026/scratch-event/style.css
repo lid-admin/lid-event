@@ -1,0 +1,860 @@
+/*
+ * Scratch教室専用スタイルシート
+ *
+ * 編集ガイド：
+ * ・色、フォント、コンテンツ幅は「01. 共通設定」の変数を変更
+ * ・各セクションは見出しごとにまとめてあるため、変更箇所を探しやすい構成
+ * ・スマホ表示はファイル末尾の「レスポンシブ対応」を編集
+ * ・同じクラスの指定を何度も追記せず、元の定義を修正する
+ */
+
+/* ===== 01. 変更しやすい共通設定（色・文字・幅） ===== */
+:root {
+  --font-heading: "Zen Maru Gothic",sans-serif;
+  --font-body: "Noto Sans JP",sans-serif;
+  --ink: #243d60;
+  --blue: #257fc5;
+  --light-blue: #eef8ff;
+  --mint: #48b99f;
+  --yellow: #ffcf67;
+  --max-width: 1080px;
+  --radius: 22px;
+}
+
+/* ===== 02. 全体・基本スタイル ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.9;
+  color: var(--ink);
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+  min-height: 100%;
+}
+
+a {
+  color: #15699b;
+}
+
+a:focus-visible,summary:focus-visible {
+  outline: 3px solid #e5b84e;
+  outline-offset: 4px;
+}
+
+.chevron {
+  font-size: 1.6rem;
+  transition: transform .2s;
+}
+
+html,body,main {
+  min-height: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== 04. ファーストビュー ===== */
+.hero-section {
+  display: flex;
+  align-items: center;
+  padding: 90px 0 60px;
+  overflow: visible;
+  background: radial-gradient(ellipse 28% 44% at 82% 40%,#e4f8ff 0%,transparent 100%),#fff;
+  min-height: 0;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  align-items: center;
+  gap: 36px;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 19px;
+}
+
+.status-badge {
+  border-radius: 99px;
+  display: inline-block;
+  padding: 3px 17px;
+  font-size: .83rem;
+  font-weight: 700;
+}
+
+.status-before {
+  background: #e9edf1;
+  color: #435768;
+}
+
+.status-open {
+  background: #d6f0df;
+  color: #206a3d;
+}
+
+.status-closed {
+  background: #f9dedf;
+  color: #a63b41;
+}
+
+.status-ended {
+  background: #e9edf1;
+  color: #435768;
+}
+
+.hero-catchphrase {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--blue);
+  font-size: clamp(1.1rem,1.55vw,1.42rem);
+  margin: 0;
+}
+
+.hero-section h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  color: #153f7e;
+  font-size: clamp(3.15rem,5.4vw,5.25rem);
+  line-height: 1.25;
+  letter-spacing: .012em;
+  margin: 0;
+  text-shadow: 0 2px 0 #e5f3ff;
+}
+
+.hero-registration-link {
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 3px;
+  transition: opacity .2s;
+}
+
+.hero-registration-link:hover {
+  opacity: .7;
+}
+
+.hero-registration-link span {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.hero-illustration-area {
+  position: relative;
+  isolation: auto;
+  filter: drop-shadow(0 13px 16px rgba(28,82,145,.09));
+}
+
+.hero-illustration {
+  display: block;
+  width: 108%;
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  transform: translateX(-3%);
+}
+
+.hero-content, .hero-illustration-area {
+  min-height: 0;
+}
+
+/* ===== 05. 共通セクション・見出し ===== */
+.content-container {
+  width: min(calc(100% - 44px),var(--max-width));
+  margin-inline: auto;
+}
+
+.section-bg-white {
+  background: #fff;
+}
+
+.section-bg-light-blue {
+  background: #eef8ff;
+}
+
+.content-section {
+  padding: 85px 0 105px;
+  scroll-margin-top: 10px;
+}
+
+.section-title-group {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-title-group h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem,3vw,2.3rem);
+  line-height: 1.45;
+  color: #173f78;
+  margin: 0;
+}
+
+.section-title-underline {
+  display: block;
+  width: 62px;
+  height: 5px;
+  border-radius: 99px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg,#53cbb2,#70c8ef);
+  box-shadow: 0 2px 7px #46b2c951;
+}
+
+.section-title-group p {
+  margin: 18px 0 0;
+}
+
+.section-bg-white,.section-bg-light-blue {
+  position: relative;
+}
+
+.section-bg-white + .section-bg-light-blue,.section-bg-light-blue + .section-bg-white {
+  border-top: 0;
+}
+
+/* ===== 06. Scratch紹介 ===== */
+.scratch-about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.scratch-about-illustration {
+  min-height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.scratch-about-screen {
+  width: min(100%,380px);
+  padding: 30px;
+  border: 13px solid #3a91c8;
+  border-radius: 28px;
+  background: linear-gradient(140deg,#fff,#d8f3fc);
+  box-shadow: inset 0 6px 3px #ffffff9e,inset 0 -7px 7px #164b783d,0 16px 0 #95c4df,0 28px 34px #28588930;
+  transform: rotate(-4deg) perspective(900px) rotateY(-6deg);
+}
+
+.window-dots {
+  display: block;
+  color: #f4cd6c;
+  font-size: 15px;
+  letter-spacing: 6px;
+  margin-bottom: 14px;
+}
+
+.code-line {
+  height: 27px;
+  border-radius: 9px;
+  margin: 10px 0;
+  box-shadow: inset 0 3px 2px #ffffff99,0 4px 8px #28618b25;
+}
+
+.code-line.mint {
+  width: 72%;
+  background: #67bfa8;
+}
+
+.code-line.yellow {
+  width: 60%;
+  background: #f4cd6c;
+  margin-left: 38px;
+}
+
+.code-line.sky {
+  width: 80%;
+  background: #81c6ee;
+  margin-left: 18px;
+}
+
+.code-line.short {
+  width: 43%;
+  margin-left: 52px;
+}
+
+.scratch-about-bubble {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  box-shadow: inset 6px 7px 10px #ffffffc0,inset -5px -7px 9px #27789e35,0 10px 12px #20517120;
+}
+
+.scratch-about-bubble-yellow {
+  width: 50px;
+  height: 50px;
+  background: #f7da89;
+  right: 4%;
+  top: 3%;
+}
+
+.scratch-about-bubble-green {
+  width: 33px;
+  height: 33px;
+  background: #9cd5b9;
+  left: 3%;
+  bottom: 6%;
+}
+
+.scratch-about-text p {
+  margin: 0 0 17px;
+}
+
+.scratch-about-note {
+  color: #167997;
+  font-weight: 700;
+}
+
+/* ===== 07. 体験できること ===== */
+.learning-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 18px;
+}
+
+.learning-step-card {
+  border-radius: 25px;
+  background: linear-gradient(145deg,#fff 3%,#effaff 82%);
+  padding: 29px 23px 30px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 13px 28px #20588b12,inset 0 2px 2px #fff;
+  border: 1px solid #d5ecf7;
+}
+
+.learning-step-card:nth-child(2) {
+  background: linear-gradient(145deg,#fff,#eafbf3);
+  box-shadow: 0 13px 28px #20588b12,inset 0 2px 2px #fff;
+}
+
+.learning-step-card:nth-child(3) {
+  background: linear-gradient(145deg,#fff,#fff8e3);
+  box-shadow: 0 13px 28px #20588b12,inset 0 2px 2px #fff;
+}
+
+.learning-step-card:nth-child(4) {
+  background: linear-gradient(145deg,#fff,#eef7ff);
+  box-shadow: 0 13px 28px #20588b12,inset 0 2px 2px #fff;
+}
+
+.learning-step-number {
+  font-weight: 800;
+  color: #3787b0;
+  letter-spacing: .08em;
+  font-size: .83rem;
+}
+
+.learning-step-illustration {
+  display: grid;
+  font-size: 2.55rem;
+  margin: 17px auto 19px;
+  filter: none;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  border-radius: 27px;
+  background: linear-gradient(145deg,#fff 2%,#b5dffc 22%,#4c9ed9 73%,#2a73b3);
+  border: 1px solid #c9eafa;
+  box-shadow: inset 0 4px 5px #ffffffbe,inset 0 -6px 8px #16568b49,0 11px 18px #246c9a35,0 2px 0 white;
+  text-shadow: 0 2px 4px #ffffffbd;
+}
+
+.learning-step-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.16rem;
+  color: #23557b;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+.learning-step-card p {
+  text-align: left;
+  font-size: .89rem;
+  margin: 0;
+  line-height: 1.85;
+}
+
+.learning-step-card:nth-child(2) .learning-step-illustration {
+  background: linear-gradient(145deg,#fff,#b4f5e2 23%,#56cdb2 70%,#25988e);
+}
+
+.learning-step-card:nth-child(3) .learning-step-illustration {
+  background: linear-gradient(145deg,#fff,#fff1b3 23%,#ffd56e 70%,#e5a633);
+}
+
+.learning-step-card:nth-child(4) .learning-step-illustration {
+  background: linear-gradient(145deg,#fff,#bde9ff 23%,#6fbee9 70%,#368bbd);
+}
+
+/* ===== 08. 開催概要・日程 ===== */
+.event-registration-section {
+  padding-bottom: 110px;
+}
+
+.event-details-panel {
+  max-width: 830px;
+  margin: auto;
+  background: #fff;
+  border-radius: 26px;
+  padding: 46px clamp(20px,5vw,60px);
+  box-shadow: 0 18px 40px #20517112,inset 0 2px 3px #fff;
+  border: 1px solid #d7ebf6;
+}
+
+.event-details-list {
+  margin: 0;
+}
+
+.event-details-item {
+  display: grid;
+  grid-template-columns: minmax(210px, 235px) minmax(0,1fr);
+  gap: 18px;
+  border-bottom: 1px solid #e2edf2;
+  padding: 13px 0;
+  align-items: center;
+}
+
+.event-details-item dt {
+  font-weight: 700;
+  color: #2b607f;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 64px;
+}
+
+.event-details-item dt span {
+  margin-right: 8px;
+}
+
+.event-details-item dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.event-details-item a {
+  font-weight: 700;
+}
+
+.course-schedule {
+  margin-top: 33px;
+  border: 1px solid #c4e2f0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.course-schedule summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 23px;
+  font-weight: 700;
+  color: #286b92;
+  background: #f0f9ff;
+}
+
+.course-schedule summary::-webkit-details-marker {
+  display: none;
+}
+
+.course-schedule[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.course-schedule-list {
+  margin: 18px 25px 4px;
+  padding-left: 26px;
+}
+
+.course-schedule-list li {
+  padding: 7px 0;
+}
+
+.course-schedule-date {
+  font-weight: 700;
+  color: #387ca7;
+  margin-right: 12px;
+}
+
+.course-schedule-note {
+  margin: 9px 25px 22px;
+  color: #61758a;
+  font-size: .8rem;
+}
+
+.event-details-icon {
+  width: 60px;
+  height: 60px;
+  flex: 0 0 60px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 5px rgba(23,90,151,.11));
+}
+
+/* ===== 09. お申し込み ===== */
+.application-area {
+  text-align: center;
+  padding-top: 42px;
+}
+
+.application-heading {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #245b80;
+  margin: 0 0 8px;
+}
+
+.application-message {
+  margin: 0 auto 22px;
+  max-width: 520px;
+}
+
+.cta,.disabled-cta {
+  display: inline-block;
+  background: #287fb7;
+  color: #fff;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  padding: 17px 40px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 6px 0 #206391;
+  transition: transform .2s;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+}
+
+.disabled-cta {
+  background: #9cadb9;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.application-external-note {
+  font-size: .84rem;
+  color: #637b88;
+  margin: 16px 0 0;
+}
+
+.application-privacy-note {
+  max-width: 640px;
+  margin: 28px auto 0;
+  text-align: left;
+  color: #617383;
+  font-size: .82rem;
+  line-height: 1.9;
+}
+
+.cta {
+  background: linear-gradient(155deg,#73c8ee,#287fc5 70%,#1b5ea8);
+  border: 1px solid #64b5e5;
+  box-shadow: inset 0 2px 2px #fff8,0 7px 0 #185d94,0 13px 20px #1c6ba533;
+}
+
+/* ===== 10. フッター ===== */
+.site-footer {
+  background: #fff;
+  padding: 28px 0;
+  color: #536c7c;
+  font-size: .85rem;
+}
+
+.site-footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.site-footer-content p {
+  margin: 0;
+}
+
+.site-footer-links {
+  display: flex;
+  gap: 23px;
+  flex-wrap: wrap;
+}
+
+.site-footer-links a {
+  color: #306e91;
+}
+
+/* ===== レスポンシブ対応 (max-width:860px) ===== */
+@media (max-width:860px) {
+  .learning-steps-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .scratch-about-content {
+    gap: 35px;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(2.6rem,6vw,4rem);
+  }
+
+}
+
+/* ===== レスポンシブ対応 (max-width:650px) ===== */
+@media (max-width:650px) {
+  .content-container {
+    width: min(calc(100% - 34px),var(--max-width));
+  }
+
+  .hero-section {
+    min-height: 0;
+    padding: 42px 0 35px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-text {
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    display: contents;
+  }
+
+  .hero-text .status-badge {
+    order: 0;
+  }
+
+  .hero-catchphrase {
+    order: 1;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    order: 2;
+    font-size: clamp(2.8rem,11vw,4rem);
+    white-space: nowrap;
+  }
+
+  .hero-illustration-area {
+    order: 3;
+    width: 100%;
+    min-height: 0;
+    max-width: 470px;
+  }
+
+  .hero-registration-link {
+    order: 4;
+    text-align: center;
+    font-size: .95rem;
+  }
+
+  .content-section {
+    padding: 56px 0 68px;
+  }
+
+  .section-title-group {
+    margin-bottom: 32px;
+  }
+
+  .section-title-group h2 {
+    font-size: clamp(1.45rem,6vw,1.95rem);
+  }
+
+  .scratch-about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .scratch-about-illustration {
+    min-height: 230px;
+    width: 100%;
+  }
+
+  .scratch-about-screen {
+    width: min(80%,330px);
+    padding: 21px;
+    border-width: 9px;
+  }
+
+  .code-line {
+    height: 21px;
+    margin: 8px 0;
+  }
+
+  .learning-steps-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .learning-step-card {
+    padding: 19px 13px 22px;
+  }
+
+  .learning-step-illustration {
+    font-size: 2.1rem;
+    margin: 9px 0;
+    width: 68px;
+    height: 68px;
+    border-radius: 21px;
+  }
+
+  .learning-step-card h3 {
+    font-size: 1.03rem;
+  }
+
+  .learning-step-card p {
+    font-size: .8rem;
+  }
+
+  .event-details-panel {
+    padding: 27px 22px;
+  }
+
+  .event-details-item {
+    grid-template-columns: minmax(0,1fr);
+    gap: 2px;
+    padding: 14px 0 18px;
+  }
+
+  .event-details-item dt {
+    font-size: .92rem;
+    min-height: 60px;
+    gap: 14px;
+  }
+
+  .event-details-item dd {
+    padding-left: 74px;
+  }
+
+  .application-heading {
+    font-size: 1.25rem;
+  }
+
+  .cta,.disabled-cta {
+    padding: 15px 25px;
+  }
+
+  .site-footer-content {
+    display: block;
+  }
+
+  .site-footer-links {
+    margin-top: 13px;
+  }
+
+  .hero-illustration {
+    object-fit: contain;
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+  }
+
+  .site-footer {
+    display: block;
+    overflow: visible;
+    clear: both;
+  }
+
+  .event-details-icon {
+    width: 60px;
+    height: 60px;
+    flex-basis: 60px;
+  }
+
+}
+
+/* ===== レスポンシブ対応 (max-width:360px) ===== */
+@media (max-width:360px) {
+  .learning-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section h1 {
+    font-size: 2.7rem;
+  }
+
+  .learning-step-card p {
+    text-align: center;
+  }
+
+}
+
+/* ===== レスポンシブ対応 (prefers-reduced-motion:reduce) ===== */
+@media (prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,*::before,*::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .hero-illustration,.learning-step-illustration {
+    animation: none !important;
+  }
+
+}
+
+/* =====================================================
+   11. 教室紹介スライドショー（3枚）
+   画像は images/ に配置。PC/スマホ共通の設定。
+   ===================================================== */
+.classroom-slideshow { min-width:0; width:100%; max-width:100%; }
+.classroom-slideshow-viewport { position:relative; aspect-ratio: 5 / 4; overflow:hidden; border-radius:24px; background:#dceff9; box-shadow: 0 18px 38px rgba(35,111,167,.13); }
+.classroom-slide { position:absolute; inset:0; margin:0; opacity:0; visibility:hidden; transition:opacity .65s ease,visibility .65s ease; }
+.classroom-slide.is-active { opacity:1; visibility:visible; z-index:1; }
+/* 教室写真は枠いっぱい、Scratch画面は左右を切らず全体を表示する */
+.classroom-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.classroom-slide--screenshot {
+  background: #f6f9fc;
+}
+.classroom-slide--screenshot img {
+  object-fit: contain;
+  object-position: center;
+}
+/* フェード中も画像が未読込のまま見えるのを避けるためHTMLで eager に設定 */
+.classroom-slide figcaption { position:absolute; bottom:0; left:0; right:0; padding:22px 15px 12px; color:white; font-size:.82rem; font-weight:600; background:linear-gradient(transparent,rgba(13,55,86,.70)); }
+.classroom-slideshow-controls { display:flex; align-items:center; justify-content:center; gap:19px; margin-top:12px; }
+.classroom-slide-arrow { display:grid; place-items:center; width:36px; height:36px; border:1px solid #b7d6e8; border-radius:50%; background:white; color:#247cb6; font-size:27px; line-height:1; cursor:pointer; }
+.classroom-slide-arrow:hover,.classroom-slide-arrow:focus-visible { background:#e5f4fc; }
+.classroom-slide-dots { display:flex; gap:9px; }
+.classroom-slide-dot { width:11px; height:11px; padding:0; border:0; border-radius:50%; background:#b7d3e5; cursor:pointer; }
+.classroom-slide-dot.is-active { background:#268cca; }
+.classroom-slide-dot:focus-visible { outline:2px solid #166fa8; outline-offset:4px; }
+@media (max-width:650px) { .classroom-slideshow-viewport { aspect-ratio: 4 / 3; border-radius:18px; } }
+@media (prefers-reduced-motion:reduce) { .classroom-slide { transition:none; } }
+
+/* 実際の画面と生成した教室風景を見分けるキャプション。白字で画像内に重ねる。 */
+.classroom-slide figcaption { text-align:right; text-shadow:0 1px 4px rgba(0,0,0,.65); }

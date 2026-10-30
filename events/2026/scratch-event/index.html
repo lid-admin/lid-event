@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#ffffff" name="theme-color"/>
+  <meta content="飯南町の小学生向けScratch教室。はじめてのプログラミングに挑戦しよう！" name="description"/>
+  <title>
+   Scratch教室 | LID飯南
+  </title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&amp;family=Zen+Maru+Gothic:wght@500;700;900&amp;display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script defer="" src="script.js">
+  </script>
+ </head>
+ <body>
+  <main>
+   <section aria-labelledby="main-title" class="hero-section section-bg-white">
+    <div class="content-container hero-content">
+     <div class="hero-text">
+      <span class="status-badge status-before" id="registration-badge">
+       受付開始前
+      </span>
+      <p class="hero-catchphrase">
+       はじめてのプログラミングに挑戦！
+      </p>
+      <h1 id="main-title">
+       Scratch教室
+      </h1>
+      <a class="hero-registration-link" href="#registration">
+       お申し込みはこちら
+       <span aria-hidden="true">
+        &darr;
+       </span>
+      </a>
+     </div>
+     <div class="hero-illustration-area">
+      <img alt="Scratchのブロックプログラミング画面を大きく映した艶のあるノートPCと、小さなロボットのイラスト" class="hero-illustration" height="480" src="images/hero-laptop-3d.png" width="620"/>
+     </div>
+    </div>
+   </section>
+   <section aria-labelledby="about-title" class="content-section section-bg-light-blue">
+    <div class="content-container">
+     <div class="section-title-group">
+      <h2 id="about-title">
+       Scratch教室について
+      </h2>
+      <span aria-hidden="true" class="section-title-underline">
+      </span>
+     </div>
+     <div class="scratch-about-content">
+      <!-- 教室紹介スライド：教室イメージ2枚＋実際のScratch画面1枚 -->
+      <div class="classroom-slideshow" aria-roledescription="カルーセル" aria-label="教室のイメージ画像">
+       <div class="classroom-slideshow-viewport" id="classroom-slideshow-viewport">
+        <figure class="classroom-slide classroom-slide--photo is-active" aria-hidden="false">
+         <img src="images/classroom-together.jpg" alt="子どもたちがノートPCを囲んで楽しそうに学ぶ教室のイメージ" width="1440" height="983" loading="eager"/>
+         <figcaption>写真はイメージです</figcaption>
+        </figure>
+        <figure class="classroom-slide classroom-slide--screenshot" aria-hidden="true">
+         <img src="images/scratch-screen.png" alt="Scratchの実際の編集画面。左側に命令ブロック、右側に野球場で動く猫の作品を表示" width="1917" height="802" loading="eager"/>
+         <figcaption>Scratchの操作画面</figcaption>
+        </figure>
+        <figure class="classroom-slide classroom-slide--photo" aria-hidden="true">
+         <img src="images/classroom-collaboration.jpg" alt="子どもたちが相談しながらPCに向かう教室のイメージ" width="1408" height="995" loading="eager"/>
+         <figcaption>写真はイメージです</figcaption>
+        </figure>
+       </div>
+       <div class="classroom-slideshow-controls">
+        <button type="button" class="classroom-slide-arrow" id="classroom-slide-prev" aria-label="前の画像へ">‹</button>
+        <div class="classroom-slide-dots" aria-label="画像を切り替える">
+         <button type="button" class="classroom-slide-dot is-active" aria-label="1枚目の画像" aria-current="true" data-slide="0"></button>
+         <button type="button" class="classroom-slide-dot" aria-label="2枚目の画像" data-slide="1"></button>
+         <button type="button" class="classroom-slide-dot" aria-label="3枚目の画像" data-slide="2"></button>
+        </div>
+        <button type="button" class="classroom-slide-arrow" id="classroom-slide-next" aria-label="次の画像へ">›</button>
+       </div>
+      </div>
+      <div class="scratch-about-text">
+       <p>
+        <strong>
+         Scratch（スクラッチ）
+        </strong>
+        は、カラフルなブロックを組み合わせて、キャラクターを動かしたり、物語やゲームをつくったりできるプログラミング教材です。
+       </p>
+       <p>
+        この教室では、初めての子も自分のペースで楽しみながら、考えたことを形にする体験を重ねます。完成した作品をみんなに紹介する時間も予定しています。
+       </p>
+       <p class="scratch-about-note">
+        プログラミングが初めてでも大丈夫！
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section aria-labelledby="experience-title" class="content-section section-bg-white">
+    <div class="content-container">
+     <div class="section-title-group">
+      <h2 id="experience-title">
+       教室で体験できること
+      </h2>
+      <span aria-hidden="true" class="section-title-underline">
+      </span>
+      <p>
+       少しずつできることを増やして、作品づくりを楽しもう！
+      </p>
+     </div>
+     <div class="learning-steps-grid">
+      <article class="learning-step-card">
+       <span class="learning-step-number">
+        STEP 01
+       </span>
+       <span aria-hidden="true" class="learning-step-illustration icon-laptop">
+        💻
+       </span>
+       <h3>
+        操作に慣れよう
+       </h3>
+       <p>
+        Scratchの基本の使い方を知って、ブロックを組み合わせてみよう。
+       </p>
+      </article>
+      <article class="learning-step-card">
+       <span class="learning-step-number">
+        STEP 02
+       </span>
+       <span aria-hidden="true" class="learning-step-illustration icon-bot">
+        🤖
+       </span>
+       <h3>
+        動かしてみよう
+       </h3>
+       <p>
+        キャラクターを動かして、自分の思いどおりに動く楽しさを体験しよう。
+       </p>
+      </article>
+      <article class="learning-step-card">
+       <span class="learning-step-number">
+        STEP 03
+       </span>
+       <span aria-hidden="true" class="learning-step-illustration icon-art">
+        🎨
+       </span>
+       <h3>
+        工夫してみよう
+       </h3>
+       <p>
+        色や動き、音などを加えて、自分だけの作品に育てよう。
+       </p>
+      </article>
+      <article class="learning-step-card">
+       <span class="learning-step-number">
+        STEP 04
+       </span>
+       <span aria-hidden="true" class="learning-step-illustration icon-star">
+        🌟
+       </span>
+       <h3>
+        紹介してみよう
+       </h3>
+       <p>
+        完成した作品をみんなに見せて、工夫したことを伝えよう。
+       </p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section aria-labelledby="registration-title" class="content-section section-bg-light-blue event-registration-section" id="registration">
+    <div class="content-container">
+     <div class="section-title-group">
+      <h2 id="registration-title">
+       開催概要・お申し込み
+      </h2>
+      <span aria-hidden="true" class="section-title-underline">
+      </span>
+     </div>
+     <div class="event-details-panel">
+      <dl class="event-details-list">
+       <div class="event-details-item">
+        <dt>
+         <img alt="" aria-hidden="true" class="event-details-icon" height="60" src="images/info-audience.png" width="60"/>
+         対象
+        </dt>
+        <dd id="info-audience">
+         小学生（低学年は保護者同伴可）<br>
+         中学生
+        </dd>
+       </div>
+       <div class="event-details-item">
+        <dt>
+         <img alt="" aria-hidden="true" class="event-details-icon" height="60" src="images/info-capacity.png" width="60"/>
+         定員
+        </dt>
+        <dd id="info-capacity">
+         5名
+        </dd>
+       </div>
+       <div class="event-details-item">
+        <dt>
+         <img alt="" aria-hidden="true" class="event-details-icon" height="60" src="images/info-fee.png" width="60"/>
+         参加費
+        </dt>
+        <dd id="info-fee">
+         無料
+        </dd>
+       </div>
+       <div class="event-details-item">
+        <dt>
+         <img alt="" aria-hidden="true" class="event-details-icon" height="60" src="images/info-duration.png" width="60"/>
+         回数・時間
+        </dt>
+        <dd id="info-duration">
+         全10回・各回60分
+        </dd>
+       </div>
+       <div class="event-details-item">
+        <dt>
+         <img alt="" aria-hidden="true" class="event-details-icon" height="60" src="images/info-venue.png" width="60"/>
+         会場
+        </dt>
+        <dd id="info-venue">
+         調整中
+        </dd>
+       </div>
+       <div class="event-details-item">
+        <dt>
+         <img alt="" aria-hidden="true" class="event-details-icon" height="60" src="images/info-deadline.png" width="60"/>
+         申込締切
+        </dt>
+        <dd id="info-deadline">
+         未定
+        </dd>
+       </div>
+       <div class="event-details-item">
+        <dt>
+         <img alt="" aria-hidden="true" class="event-details-icon" height="60" src="images/info-organizer.png" width="60"/>
+         主催
+        </dt>
+        <dd id="info-organizer">
+         LocalImpactDesign飯南
+        </dd>
+       </div>
+      </dl>
+      <details class="course-schedule">
+       <summary>
+        全10回の予定を見る
+        <span aria-hidden="true" class="chevron">
+         ⌄
+        </span>
+       </summary>
+       <ol class="course-schedule-list">
+        <li>
+         <span class="course-schedule-date">
+          日程調整中
+         </span>
+         第1回　Scratchで自己紹介！
+        </li>
+        <li>
+         <span class="course-schedule-date">
+          日程調整中
+         </span>
+         第2回　みんなでダンス大会！
+        </li>
+        <li>
+         <span class="course-schedule-date">
+          日程調整中
+         </span>
+         第3回　水族館をつくろう！
+        </li>
+        <li>
+         <span class="course-schedule-date">
+          日程調整中
+         </span>
+         第4回　迷路で大冒険！
+        </li>
+        <li>
+         <span class="course-schedule-date">
+          日程調整中
+         </span>
+         第5回　上手にとれるかな？キャッチボールゲーム！
+        </li>
+        <li>
+         <span class="course-schedule-date">
+          日程調整中
+         </span>
+         第6回　敵をよけて！ドキドキゲーム！
+        </li>
+        <li>
+         <span class="course-schedule-date">
+          日程調整中
+         </span>
+         第7回　全問正解を目指せ！クイズゲーム！
+        </li>
+        <li>
+         <span class="course-schedule-date">
+          日程調整中
+         </span>
+         第8回　オリジナルの作品をつくろう！part1
+        </li>
+        <li>
+         <span class="course-schedule-date">
+          日程調整中
+         </span>
+         第9回　オリジナルの作品をつくろう！part2
+        </li>
+        <li>
+         <span class="course-schedule-date">
+          日程調整中
+         </span>
+         第10回　みんなで作品発表会！
+        </li>
+       </ol>
+       <p class="course-schedule-note">
+        ※各回の内容は変更となる場合があります。
+       </p>
+      </details>
+      <div aria-live="polite" class="application-area">
+       <p class="application-heading">
+        お申し込みについて
+       </p>
+       <p class="application-message" id="registration-message">
+        お申し込みの受付開始まで、もう少しお待ちください。
+       </p>
+       <div id="registration-control">
+        <span aria-disabled="true" class="disabled-cta">
+         申込フォーム準備中
+        </span>
+       </div>
+       <p class="application-external-note" hidden="" id="external-note">
+        別のタブで申込フォームが開きます。
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <div class="content-container site-footer-content">
+    <p>
+     主催：LocalImpactDesign飯南
+    </p>
+    <div class="site-footer-links">
+     <a href="https://lid-iinan.com/contact.html" rel="noopener noreferrer" target="_blank">
+      お問い合わせ
+     </a>
+    </div>
+   </div>
+  </footer>
+ </body>
+</html>
