@@ -1,0 +1,182 @@
+/* サイト共通の文書ページ。イベント固有のCSS/JSには依存しません。 */
+
+:root {
+  --policy-ink: #183e50;
+  --policy-blue: #0877bf;
+  --policy-pale: #edf7fb;
+  --policy-line: #cbdfe7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--policy-ink);
+  background: #fff;
+  font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+  line-height: 1.95;
+}
+
+a {
+  color: var(--policy-blue);
+  text-underline-offset: .25em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--policy-blue);
+  outline-offset: 5px;
+}
+
+.policy-wrap {
+  width: min(880px, calc(100% - 40px));
+  margin: auto;
+}
+
+.policy-header {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--policy-line);
+}
+
+.policy-brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--policy-ink);
+}
+
+.policy-hero {
+  padding: 48px 0 36px;
+  background: var(--policy-pale);
+}
+
+h1, h2 {
+  font-family: "Zen Maru Gothic", "Yu Gothic", sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: clamp(26px, 5vw, 40px);
+  margin: 12px 0 20px;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 0 0 16px;
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+.policy-body {
+  padding: 36px 0 56px;
+}
+
+.policy-body section {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--policy-line);
+  scroll-margin-top: 24px;
+}
+
+.policy-note {
+  background: #fff7dc;
+  border-left: 4px solid #967000;
+  padding: 18px 20px;
+  border-radius: 4px;
+}
+
+.policy-check {
+  font-size: .94rem;
+  color: #634b00;
+  background: #fff7dc;
+  padding: 14px 18px;
+  border-radius: 6px;
+}
+
+.policy-check strong {
+  display: block;
+}
+
+.policy-toc {
+  padding: 20px;
+  background: var(--policy-pale);
+  border-radius: 12px;
+}
+
+.policy-toc ol {
+  padding-left: 24px;
+}
+
+.policy-footer {
+  padding: 28px 0;
+  background: var(--policy-pale);
+}
+
+.policy-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.policy-meta {
+  font-size: .9rem;
+}
+
+.policy-skip {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  background: #fff;
+  padding: 10px;
+}
+
+.policy-skip:focus {
+  top: 10px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+@media (max-width:480px) {
+  .policy-hero {
+    padding: 30px 0;
+  }
+
+  .policy-body {
+    padding-top: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+}
+
+@media print {
+  .policy-header, .policy-toc, .policy-footer, .policy-skip {
+    display: none;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  .policy-wrap {
+    width: 100%;
+  }
+
+  .policy-hero {
+    padding: 0;
+  }
+
+  section {
+    break-inside: avoid;
+  }
+
+}
