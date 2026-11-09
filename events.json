@@ -1,0 +1,15 @@
+[
+  {
+    "id": "scratch-2026",
+    "title": "はじめてのScratch教室",
+    "description": "自分のアイデアを形にする、はじめてのプログラミング体験。",
+    "startDate": null,
+    "endDate": null,
+    "dateText": "日程調整中",
+    "venue": "会場調整中",
+    "registrationStatus": "preparing",
+    "image": "./images/scratch-event.png",
+    "imageAlt": "",
+    "url": "./events/2026/scratch-event/index.html"
+  }
+]
